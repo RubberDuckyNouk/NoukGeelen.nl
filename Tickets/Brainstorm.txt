@@ -1,6 +1,0 @@
-- Keep all information from noukgeelen.nl
-- Make it into HTML to take website off wordpress
-- make design cleaner
-- Will host on cloud service, check what is needed to display images.
-- Add portfolio page for personal projects.
-- 
