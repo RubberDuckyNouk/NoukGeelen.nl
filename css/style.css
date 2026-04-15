@@ -1,0 +1,32 @@
+/* ==========================================================================
+   NoukGeelen.nl — Custom Styles
+   ========================================================================== */
+
+:root {
+  /* Brand colours – adjust as needed */
+  --color-primary: #4a90d9;
+  --color-secondary: #6c757d;
+  --color-bg: #ffffff;
+  --color-text: #212529;
+}
+
+/* Basic reset / global defaults */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
