@@ -30,3 +30,8 @@ body {
 main {
     flex: 1;
 }
+
+/* Hero section */
+.display-4 {
+    color: var(--color-primary);
+}
