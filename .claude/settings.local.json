@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:noukgeelen.nl)"
+      "WebFetch(domain:noukgeelen.nl)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)"
     ]
   }
 }
