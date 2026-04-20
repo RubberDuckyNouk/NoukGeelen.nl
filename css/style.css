@@ -109,3 +109,17 @@ body {
 .fw-sm {
     font-weight: 600;
 }
+
+a {
+color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+    a:hover {
+        color: var(--color-nav-bg);
+        text-decoration: underline;
+    }
+
+    a:visited {
+        color: var(--color-primary);
+    }
