@@ -3,11 +3,12 @@
    ========================================================================== */
 
 :root {
-  /* Brand colours – adjust as needed */
-  --color-primary: #4a90d9;
-  --color-secondary: #6c757d;
-  --color-bg: #ffffff;
-  --color-text: #212529;
+/* Brand colours */
+    --color-primary: #7aab8e;
+    --color-accent: #f0e0a0;
+    --color-bg: #fafaf7;
+    --color-text: #3a3a3a;
+    --color-nav-bg: #4a7a5e;
 }
 
 /* Basic reset / global defaults */
@@ -19,6 +20,43 @@
   box-sizing: border-box;
 }
 
+/*navbar*/
+.navbar {
+    background-color: var(--color-nav-bg) !important;
+}
+
+
+/* footer */
+.fs-small {
+    font-size: 0.875rem;
+}
+
+footer {
+    background-color: var(--color-nav-bg);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
+    /* Footer social links */
+    footer a {
+        color: var(--color-accent);
+        transition: opacity 0.2s;
+    }
+
+        footer a:hover {
+            color: var(--color-accent);
+            opacity: 0.8;
+        }
+
+
+/*******************************/
+
+main {
+    flex: 1;
+}
+
 body {
     color: var(--color-text);
     background-color: var(--color-bg);
@@ -27,24 +65,47 @@ body {
     min-height: 100vh;
 }
 
-main {
-    flex: 1;
+/* Card styling */
+.card {
+    border-left: 4px solid var(--color-primary);
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
 }
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
 
 /* Hero section */
 .display-4 {
     color: var(--color-primary);
 }
 
-/* pages */
-.card {
-    border-left: 4px solid var(--color-primary);
+/* Buttons */
+.btn-outline-primary {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 }
 
+    .btn-outline-primary:hover {
+        background-color: var(--color-primary);
+        border-color: var(--color-primary);
+        color: #fff;
+    }
+
+/* Badges */
+.badge.bg-primary {
+    background-color: var(--color-nav-bg) !important; /* dark green for strong skills */
+}
+.badge.bg-secondary {
+    background-color: var(--color-primary) !important;
+}
+
+/*font*/
 .fw-sm {
     font-weight: 600;
-}
-
-.fs-small {
-    font-size: 0.875rem;
 }
