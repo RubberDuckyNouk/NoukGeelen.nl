@@ -39,15 +39,18 @@ footer {
     margin-top: auto;
 }
 
+
     /* Footer social links */
     footer a {
         color: var(--color-accent);
         transition: opacity 0.2s;
+        text-decoration: none;
     }
 
         footer a:hover {
             color: var(--color-accent);
             opacity: 0.8;
+            text-decoration: none;
         }
 
 
