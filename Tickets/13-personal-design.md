@@ -72,24 +72,48 @@ Add this below your existing `body` rule in `css/style.css`:
 
 ---
 
-### Step 3: Override the footer background
+### Step 3: Clean up the footer HTML
 
-Same idea — the footer currently uses Bootstrap's `bg-dark`. Add this rule:
+Instead of fighting Bootstrap's `!important` from CSS, remove the Bootstrap utility classes from the `<footer>` and handle everything in your own stylesheet. This is tidier — your CSS becomes the single source of truth for footer styling.
 
-```css
-/* Footer — match the navbar */
-footer {
-    background-color: var(--color-nav-bg) !important;
-}
+In **every HTML file** (`index.html` and all 7 files in `pages/`), change the footer opening tag from:
+
+```html
+<footer class="bg-dark text-white text-center py-4 mt-auto">
 ```
+
+to just:
+
+```html
+<footer>
+```
+
+The files to update:
+- `index.html`
+- `pages/about.html`
+- `pages/contact.html`
+- `pages/education.html`
+- `pages/experience.html`
+- `pages/interests.html`
+- `pages/portfolio.html`
+- `pages/skills.html`
 
 ---
 
-### Step 4: Style footer links with the accent colour
+### Step 4: Style the footer entirely from CSS
 
-The social icons in the footer are currently plain white. Make them pop with the butter yellow accent:
+Now that the footer has no Bootstrap classes, add all its styling in `css/style.css`:
 
 ```css
+/* Footer */
+footer {
+    background-color: var(--color-nav-bg);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
+}
+
 /* Footer social links */
 footer a {
     color: var(--color-accent);
@@ -101,6 +125,18 @@ footer a:hover {
     opacity: 0.8;
 }
 ```
+
+**Why this is better than overriding:**
+- No `!important` needed — since there are no Bootstrap classes to compete with, your rule wins naturally
+- All footer styling lives in one place (`style.css`) instead of being split between HTML and CSS
+- If you want to change the footer look later, you only edit CSS — not 8 HTML files
+
+**What the CSS properties replace:**
+- `background-color: var(--color-nav-bg)` replaces `bg-dark`
+- `color: #fff` replaces `text-white`
+- `text-align: center` replaces `text-center`
+- `padding: 1.5rem 0` replaces `py-4` (Bootstrap's `py-4` = 1.5rem top/bottom)
+- `margin-top: auto` replaces `mt-auto` (pushes footer to the bottom of the page)
 
 **New concept — `transition`:** This tells the browser to animate changes smoothly. `opacity 0.2s` means "when the opacity changes, take 0.2 seconds to do it" — giving links a soft fade effect on hover instead of an abrupt change.
 
@@ -226,9 +262,13 @@ main {
     background-color: var(--color-nav-bg) !important;
 }
 
-/* Footer — match the navbar */
+/* Footer */
 footer {
-    background-color: var(--color-nav-bg) !important;
+    background-color: var(--color-nav-bg);
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: auto;
 }
 
 /* Footer social links */
