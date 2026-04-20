@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Palette Mockups - Nouk Geelen</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* ===== PALETTE SWITCHER ===== */
+        .palette-nav {
+            position: sticky;
+            top: 0;
+            z-index: 1050;
+            background: #333;
+            padding: 1rem;
+            text-align: center;
+        }
+        .palette-nav a {
+            color: #fff;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .palette-nav a:hover { text-decoration: underline; }
+
+        .mockup-section { padding: 0; margin-bottom: 3rem; }
+        .mockup-label {
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        /* ===== OPTION D: Warm Honey ===== */
+        .option-d { --primary: #c9a227; --accent: #5a8a6a; --bg: #fffdf7; --text: #2c2c2c; --nav-bg: #4a3f2a; --footer-bg: #4a3f2a; --badge-bg: #c9a227; --card-border: #c9a227; --btn-outline: #c9a227; }
+        .option-d .mockup-label { background: #4a3f2a; }
+
+        /* ===== OPTION E: Sunlit / Energetic ===== */
+        .option-e { --primary: #e6a817; --accent: #3d7a5a; --bg: #ffffff; --text: #1a1a1a; --nav-bg: #5c4a1e; --footer-bg: #5c4a1e; --badge-bg: #e6a817; --card-border: #e6a817; --btn-outline: #b8860b; }
+        .option-e .mockup-label { background: #5c4a1e; }
+
+        /* ===== OPTION F: Soft Butter ===== */
+        .option-f { --primary: #d4a843; --accent: #7aab8e; --bg: #fdfbf5; --text: #3a3a3a; --nav-bg: #6b5b3a; --footer-bg: #6b5b3a; --badge-bg: #d4a843; --card-border: #d4a843; --btn-outline: #d4a843; }
+        .option-f .mockup-label { background: #6b5b3a; }
+
+        /* ===== OPTION A: Nature / Botanical ===== */
+        .option-a { --primary: #5a8a6a; --accent: #e8d44d; --bg: #f9f7f2; --text: #2c2c2c; --nav-bg: #2d4a37; --footer-bg: #2d4a37; --badge-bg: #5a8a6a; --card-border: #5a8a6a; --btn-outline: #5a8a6a; }
+        .option-a .mockup-label { background: #2d4a37; }
+
+        /* ===== OPTION B: Fresh / Modern ===== */
+        .option-b { --primary: #2d8659; --accent: #f5c842; --bg: #ffffff; --text: #1a1a1a; --nav-bg: #1b5e3b; --footer-bg: #1b5e3b; --badge-bg: #2d8659; --card-border: #2d8659; --btn-outline: #2d8659; }
+        .option-b .mockup-label { background: #1b5e3b; }
+
+        /* ===== OPTION C: Soft / Minimal ===== */
+        .option-c { --primary: #7aab8e; --accent: #f0e0a0; --bg: #fafaf7; --text: #3a3a3a; --nav-bg: #4a7a5e; --footer-bg: #4a7a5e; --badge-bg: #7aab8e; --card-border: #7aab8e; --btn-outline: #7aab8e; }
+        .option-c .mockup-label { background: #4a7a5e; }
+
+        /* ===== Shared mockup styling ===== */
+        .mockup-body {
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 0;
+        }
+        .mockup-nav {
+            background-color: var(--nav-bg) !important;
+        }
+        .mockup-body .page-title {
+            color: var(--primary);
+        }
+        .mockup-body .card {
+            border-left: 4px solid var(--card-border);
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .mockup-body .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+        }
+        .mockup-body .badge {
+            background-color: var(--badge-bg) !important;
+        }
+        .mockup-body .btn-outline-primary {
+            color: var(--btn-outline);
+            border-color: var(--btn-outline);
+        }
+        .mockup-body .btn-outline-primary:hover {
+            background-color: var(--btn-outline);
+            color: #fff;
+        }
+        .mockup-body .btn-outline-secondary {
+            color: #555;
+            border-color: #aaa;
+        }
+        .mockup-body .btn-outline-secondary:hover {
+            background-color: #555;
+            color: #fff;
+        }
+        .mockup-footer {
+            background-color: var(--footer-bg) !important;
+        }
+        .mockup-body a.footer-link {
+            color: var(--accent);
+        }
+        .mockup-body .lead {
+            color: #666;
+        }
+    </style>
+</head>
+<body style="background:#eee;">
+
+    <!-- Sticky nav to jump between options -->
+    <nav class="palette-nav">
+        <strong style="color:#ccc;">Greens:</strong>
+        <a href="#option-a">A — Nature / Botanical</a>
+        <a href="#option-b">B — Fresh / Modern</a>
+        <a href="#option-c">C — Soft / Minimal</a>
+        <span style="color:#666; margin: 0 0.5rem;">|</span>
+        <strong style="color:#ccc;">Yellows:</strong>
+        <a href="#option-d">D — Warm Honey</a>
+        <a href="#option-e">E — Sunlit / Energetic</a>
+        <a href="#option-f">F — Soft Butter</a>
+    </nav>
+
+    <!-- ============================================================
+         OPTION A: Nature / Botanical
+         ============================================================ -->
+    <section id="option-a" class="mockup-section option-a">
+        <div class="mockup-label">Option A — Nature / Botanical</div>
+        <div class="mockup-body">
+            <nav class="navbar navbar-expand-lg navbar-dark mockup-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Nouk Geelen</a>
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Education</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container my-5">
+                <h1 class="display-5 fw-bold mb-2 page-title">Portfolio</h1>
+                <p class="lead mb-5">A collection of personal projects.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Table Turns</h2>
+                                <p class="card-text">A web application for tracking table football scores with a ranking system.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-primary me-2">Go to app <i class="bi bi-box-arrow-up-right"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">JavaScript</span>
+                                    <span class="badge me-1 mb-1">Node.js</span>
+                                    <span class="badge me-1 mb-1">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Inventory Tracker</h2>
+                                <p class="card-text">A simple desktop application for tracking inventory in a lab environment, built in Python.</p>
+                                <div class="mt-auto">
+                                    <span class="badge me-1 mb-1">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">NoukGeelen.nl</h2>
+                                <p class="card-text">My personal website. Originally built on WordPress, rebuilt with HTML, CSS and Bootstrap.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">HTML</span>
+                                    <span class="badge me-1 mb-1">CSS</span>
+                                    <span class="badge me-1 mb-1">Bootstrap 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="text-white text-center py-4 mockup-footer">
+                <div class="container">
+                    <p class="mb-1">Nouk Geelen</p>
+                    <div class="mb-2">
+                        <a href="#" class="footer-link me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="footer-link fs-5"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         OPTION B: Fresh / Modern
+         ============================================================ -->
+    <section id="option-b" class="mockup-section option-b">
+        <div class="mockup-label">Option B — Fresh / Modern</div>
+        <div class="mockup-body">
+            <nav class="navbar navbar-expand-lg navbar-dark mockup-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Nouk Geelen</a>
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Education</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container my-5">
+                <h1 class="display-5 fw-bold mb-2 page-title">Portfolio</h1>
+                <p class="lead mb-5">A collection of personal projects.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Table Turns</h2>
+                                <p class="card-text">A web application for tracking table football scores with a ranking system.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-primary me-2">Go to app <i class="bi bi-box-arrow-up-right"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">JavaScript</span>
+                                    <span class="badge me-1 mb-1">Node.js</span>
+                                    <span class="badge me-1 mb-1">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Inventory Tracker</h2>
+                                <p class="card-text">A simple desktop application for tracking inventory in a lab environment, built in Python.</p>
+                                <div class="mt-auto">
+                                    <span class="badge me-1 mb-1">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">NoukGeelen.nl</h2>
+                                <p class="card-text">My personal website. Originally built on WordPress, rebuilt with HTML, CSS and Bootstrap.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">HTML</span>
+                                    <span class="badge me-1 mb-1">CSS</span>
+                                    <span class="badge me-1 mb-1">Bootstrap 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="text-white text-center py-4 mockup-footer">
+                <div class="container">
+                    <p class="mb-1">Nouk Geelen</p>
+                    <div class="mb-2">
+                        <a href="#" class="footer-link me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="footer-link fs-5"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         OPTION C: Soft / Minimal
+         ============================================================ -->
+    <section id="option-c" class="mockup-section option-c">
+        <div class="mockup-label">Option C — Soft / Minimal</div>
+        <div class="mockup-body">
+            <nav class="navbar navbar-expand-lg navbar-dark mockup-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Nouk Geelen</a>
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Education</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container my-5">
+                <h1 class="display-5 fw-bold mb-2 page-title">Portfolio</h1>
+                <p class="lead mb-5">A collection of personal projects.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Table Turns</h2>
+                                <p class="card-text">A web application for tracking table football scores with a ranking system.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-primary me-2">Go to app <i class="bi bi-box-arrow-up-right"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">JavaScript</span>
+                                    <span class="badge me-1 mb-1">Node.js</span>
+                                    <span class="badge me-1 mb-1">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Inventory Tracker</h2>
+                                <p class="card-text">A simple desktop application for tracking inventory in a lab environment, built in Python.</p>
+                                <div class="mt-auto">
+                                    <span class="badge me-1 mb-1">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">NoukGeelen.nl</h2>
+                                <p class="card-text">My personal website. Originally built on WordPress, rebuilt with HTML, CSS and Bootstrap.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">HTML</span>
+                                    <span class="badge me-1 mb-1">CSS</span>
+                                    <span class="badge me-1 mb-1">Bootstrap 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="text-white text-center py-4 mockup-footer">
+                <div class="container">
+                    <p class="mb-1">Nouk Geelen</p>
+                    <div class="mb-2">
+                        <a href="#" class="footer-link me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="footer-link fs-5"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         OPTION D: Warm Honey
+         ============================================================ -->
+    <section id="option-d" class="mockup-section option-d">
+        <div class="mockup-label">Option D — Warm Honey</div>
+        <div class="mockup-body">
+            <nav class="navbar navbar-expand-lg navbar-dark mockup-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Nouk Geelen</a>
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Education</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container my-5">
+                <h1 class="display-5 fw-bold mb-2 page-title">Portfolio</h1>
+                <p class="lead mb-5">A collection of personal projects.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Table Turns</h2>
+                                <p class="card-text">A web application for tracking table football scores with a ranking system.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-primary me-2">Go to app <i class="bi bi-box-arrow-up-right"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">JavaScript</span>
+                                    <span class="badge me-1 mb-1">Node.js</span>
+                                    <span class="badge me-1 mb-1">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Inventory Tracker</h2>
+                                <p class="card-text">A simple desktop application for tracking inventory in a lab environment, built in Python.</p>
+                                <div class="mt-auto">
+                                    <span class="badge me-1 mb-1">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">NoukGeelen.nl</h2>
+                                <p class="card-text">My personal website. Originally built on WordPress, rebuilt with HTML, CSS and Bootstrap.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">HTML</span>
+                                    <span class="badge me-1 mb-1">CSS</span>
+                                    <span class="badge me-1 mb-1">Bootstrap 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="text-white text-center py-4 mockup-footer">
+                <div class="container">
+                    <p class="mb-1">Nouk Geelen</p>
+                    <div class="mb-2">
+                        <a href="#" class="footer-link me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="footer-link fs-5"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         OPTION E: Sunlit / Energetic
+         ============================================================ -->
+    <section id="option-e" class="mockup-section option-e">
+        <div class="mockup-label">Option E — Sunlit / Energetic</div>
+        <div class="mockup-body">
+            <nav class="navbar navbar-expand-lg navbar-dark mockup-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Nouk Geelen</a>
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Education</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container my-5">
+                <h1 class="display-5 fw-bold mb-2 page-title">Portfolio</h1>
+                <p class="lead mb-5">A collection of personal projects.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Table Turns</h2>
+                                <p class="card-text">A web application for tracking table football scores with a ranking system.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-primary me-2">Go to app <i class="bi bi-box-arrow-up-right"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">JavaScript</span>
+                                    <span class="badge me-1 mb-1">Node.js</span>
+                                    <span class="badge me-1 mb-1">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Inventory Tracker</h2>
+                                <p class="card-text">A simple desktop application for tracking inventory in a lab environment, built in Python.</p>
+                                <div class="mt-auto">
+                                    <span class="badge me-1 mb-1">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">NoukGeelen.nl</h2>
+                                <p class="card-text">My personal website. Originally built on WordPress, rebuilt with HTML, CSS and Bootstrap.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">HTML</span>
+                                    <span class="badge me-1 mb-1">CSS</span>
+                                    <span class="badge me-1 mb-1">Bootstrap 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="text-white text-center py-4 mockup-footer">
+                <div class="container">
+                    <p class="mb-1">Nouk Geelen</p>
+                    <div class="mb-2">
+                        <a href="#" class="footer-link me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="footer-link fs-5"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         OPTION F: Soft Butter
+         ============================================================ -->
+    <section id="option-f" class="mockup-section option-f">
+        <div class="mockup-label">Option F — Soft Butter</div>
+        <div class="mockup-body">
+            <nav class="navbar navbar-expand-lg navbar-dark mockup-nav">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Nouk Geelen</a>
+                    <div class="navbar-collapse">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Education</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Experience</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Skills</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#">Portfolio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <main class="container my-5">
+                <h1 class="display-5 fw-bold mb-2 page-title">Portfolio</h1>
+                <p class="lead mb-5">A collection of personal projects.</p>
+
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Table Turns</h2>
+                                <p class="card-text">A web application for tracking table football scores with a ranking system.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-primary me-2">Go to app <i class="bi bi-box-arrow-up-right"></i></a>
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">JavaScript</span>
+                                    <span class="badge me-1 mb-1">Node.js</span>
+                                    <span class="badge me-1 mb-1">PostgreSQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">Inventory Tracker</h2>
+                                <p class="card-text">A simple desktop application for tracking inventory in a lab environment, built in Python.</p>
+                                <div class="mt-auto">
+                                    <span class="badge me-1 mb-1">Python</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h2 class="card-title h5">NoukGeelen.nl</h2>
+                                <p class="card-text">My personal website. Originally built on WordPress, rebuilt with HTML, CSS and Bootstrap.</p>
+                                <div class="mt-auto mb-2">
+                                    <a href="#" class="btn btn-sm btn-outline-secondary"><i class="bi bi-github"></i> GitHub</a>
+                                </div>
+                                <div>
+                                    <span class="badge me-1 mb-1">HTML</span>
+                                    <span class="badge me-1 mb-1">CSS</span>
+                                    <span class="badge me-1 mb-1">Bootstrap 5</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer class="text-white text-center py-4 mockup-footer">
+                <div class="container">
+                    <p class="mb-1">Nouk Geelen</p>
+                    <div class="mb-2">
+                        <a href="#" class="footer-link me-3 fs-5"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="footer-link fs-5"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
