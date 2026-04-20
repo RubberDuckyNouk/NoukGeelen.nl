@@ -44,3 +44,7 @@ main {
 .fw-sm {
     font-weight: 600;
 }
+
+.fs-small {
+    font-size: 0.875rem;
+}
