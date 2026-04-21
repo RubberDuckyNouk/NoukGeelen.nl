@@ -90,12 +90,13 @@ body {
 
 /* Hero banner — home page only */
 .hero {
-    background-image: url('../images/BackgroundFont.JPG');
+    background-image: url('../images/BackgroundFont.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 4rem 0;
     position: relative;
+    min-height: 50vh;
 }
 
     .hero::before {
