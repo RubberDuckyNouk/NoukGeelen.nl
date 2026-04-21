@@ -88,6 +88,48 @@ body {
     color: var(--color-primary);
 }
 
+/* Hero banner — home page only */
+.hero {
+    background-image: url('../images/BackgroundFont.JPG');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 4rem 0;
+    position: relative;
+}
+
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(250, 250, 247, 0.65);
+    }
+
+    .hero .container {
+        position: relative;
+    }
+
+/*    .hero p {
+        font-weight: 600*/
+/*    }*/
+
+    .hero .col-md-7 {
+        background-color: rgba(250, 250, 247, 0.7);
+        padding: 2rem;
+        border-radius: 0.5rem;
+    }
+
+    @media (max-width: 767px) {
+        .hero .col-md-7 {
+            width: calc(100% - 2rem);
+            margin: 0 auto;
+        }
+    }
+    
+
 /* Buttons */
 .btn-outline-primary {
     color: var(--color-primary);
